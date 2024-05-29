@@ -19,22 +19,21 @@ public class AppUser {
    private int id;
 
    @Column(nullable = false, unique = true)
-   private String username;
+   @Setter private String username;
 
    @Column(nullable = false)
-   private String password;
+   @Setter private String password;
 
    @Column
-   private LocalDate regDate;
-   @Setter
+   @Setter private LocalDate regDate;
+
    @OneToOne
    @JoinColumn(name = "details.id")
-   private Details userDetails;
+   @Setter private Details userDetails;
 
-   public AppUser(int id, String username, String password, LocalDate regDate) {
-      this.id = id;
+   public AppUser(String username, String password) {
       this.username = username;
       this.password = password;
-      this.regDate = regDate;
+      this.regDate = LocalDate.now();
    }
 }
