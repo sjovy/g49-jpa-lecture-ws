@@ -16,7 +16,7 @@ public class AppUser {
    //Fields
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int id;
+   @Setter private int id;
 
    @Column(nullable = false, unique = true)
    @Setter private String username;
